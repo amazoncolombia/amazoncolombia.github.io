@@ -19,8 +19,7 @@
 
         #search-bar{
             height: 38px;
-            margin-left: 1px;
-            margin-right: 1px;
+            margin: 0px;
         }
 
         #search-category{
@@ -42,16 +41,33 @@
             border-radius: 0px 5px 5px 0px;
         }
 
-    </style>
+        .bottom-text{
+            color: #033076;
+            /* margin: 10px 0 10px 0; */
+        }
 
+        #banner{
+            background-color: #033076; 
+            color: white; 
+            padding: 7px;
+        }
+    </style>
     <title>Amazon Colombia</title>
 </head>
 <body>
-    <div class="container text-center h-100">
-        <div class="row h-75">
-            <div class="container my-auto">
+    <div class="container-fluid text-center h-100">
+        <div class="row" id="banner">
+            <div class="col-6">
+                Categorias
+            </div>
+            <div class="col-6">
+                0 en lista
+            </div>
+        </div>
+        <div class="row h-50">
+            <div class="container my-auto" style="margin-bottom: 0px !important;">
                 <div class="row">
-                    <h2 class="col-12" style="color: #033076; font-weight: bold;">
+                    <h2 class="col-12" style="color: #033076; font-weight: bold; margin-bottom: 0px; height: 32px;">
                         Amazon 
                         <span style="color: #f4eb49;">Col</span>om<span style="color: #b70f0a;">bia</span>
                     </h2>
@@ -60,7 +76,7 @@
                     <h5 class="col-12">Un afiliado de amazon.com</h5>
                 </div>
                 <br>
-                <form id="search-bar" class="row">
+                <form class="row" id="search-bar">
                     <select id="search-category" class="col-3">
                         <option value="todos" selected>Todos</option>
                     </select>
@@ -72,6 +88,52 @@
                         </svg>
                     </button>
                 </form>
+                <br>
+                <div class="row bottom-text">
+                    <div class="col-12">
+                        Vender en Colombia
+                    </div>
+                </div>
+                <br>
+                <div class="row bottom-text">
+                    <div class="col-12">
+                        Iniciar en 
+                        <span style="color:black; font-weight: bold;">amazon</span><span style="color:#fec63d; font-weight: bold;">.com</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row mh-100">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 bottom-text">
+                        Reconocidas en Colombia en amazon.com
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-4">
+                        Marca
+                    </div>
+                    <div class="col-4">
+                        Marca
+                    </div>
+                    <div class="col-4">
+                        Marca
+                    </div>
+                    <div class="w-100"></div><br>
+                    <div class="col-4">
+                        Marca
+                    </div>
+                    <div class="col-4">
+                        Marca
+                    </div>
+                    <div class="col-4">
+                        Marca
+                    </div>
+                    <div class="w-100"></div><br>
+                </div>
             </div>
         </div>
     </div>
