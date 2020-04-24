@@ -1,17 +1,30 @@
 "use strict";
 
 import Main from "/amazoncolombia.github.io/views/pages/main.js";
+import BrandList from "/amazoncolombia.github.io/views/pages/brandList.js";
+import Brand from "/amazoncolombia.github.io/views/pages/brand.js";
+import Article from "/amazoncolombia.github.io/views/pages/article.js";
+
 import Error404 from "/amazoncolombia.github.io/views/pages/error404.js";
+
+import Navbar from "/amazoncolombia.github.io/views/components/navbar.js";
 
 import Utils from "/amazoncolombia.github.io/services/utils.js";
 
 const routes = {
     "/": Main,
+    "/brand-list": BrandList,
+    "/brand": Brand,
+    "/article": Article,
 };
 
 const router = async () => {
     
+    const header = null || document.getElementById("header");
     const content = null || document.getElementById("content");
+
+    header.innerHTML = await Navbar.render();
+    await Navbar.afterRender();
 
     let request = Utils.parseRequestURL()
     let parsedURL = (request.resource ? '/' + request.resource : '/') + 

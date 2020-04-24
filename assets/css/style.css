@@ -5,12 +5,11 @@ html,body {
 
 .search-bar{
     height: 38px;
-    margin: 0px; 
-    /* cambiar con mr-3 y ml-3 */
 }
 
 .search-category{
     border-radius: 5px 0px 0px 5px;
+    background-color: #d6d6d6;
     padding: 0px 0px 0px 10px;
     border: none;  
 }
@@ -37,6 +36,16 @@ html,body {
     background-color: #033076; 
     color: white; 
     padding: 7px;
+}
+
+.banner div a{
+    text-decoration:none;
+    font-weight: bold;
+    color: white; 
+}
+
+.banner-link:hover{
+    font-size: 18px;
 }
 
 #main-logo{
