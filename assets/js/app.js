@@ -34,7 +34,8 @@ const router = async () => {
                     (request.verb ? '/' + request.verb : '');
     let page = routes[parsedURL] ? routes[parsedURL] : Error404;
     content.innerHTML = await page.render();
-    await page.afterRender();
+    await page.afterRender();//añandir funciones para manejar la pagina generada.
+    window.scrollTo(0, 0);
 }
 
 // Listen on hash change:
