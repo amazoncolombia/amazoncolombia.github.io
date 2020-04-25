@@ -20,7 +20,10 @@ let Article = {
     render: async () => {
         let request = Utils.parseRequestURL();
         let article = await getArticle(request.name);
-        //cambiar article.text por article.html
+        let htmlResponse = await fetch(article.html);
+        let htmlContent = await htmlResponse.text();
+        // .then( (res) => res.json())
+        // .then( (res) => htmlContent = res)
         return `
             <div class="row mt-4 text-left">
                 <h4 class="col-12 font-weight-bold">
@@ -48,7 +51,7 @@ let Article = {
             </div>
             
             <p class="mt-4 text-left m-2" style="font-size: 18px;">
-                ${article.text}
+                ${htmlContent}
             </p>
             
             <div class="row">

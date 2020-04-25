@@ -3,5 +3,5 @@
     "date": "02/07/2020",
     "time": "1",
     "img": "./assets/img/zapato.jpg",
-    "text": "texto largo texto corto texto corto texto corto texto corto texto corto texto corto"
+    "html": "./models/articles/adidas-los-mejores-zapatos.html"
 }
