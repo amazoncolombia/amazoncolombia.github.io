@@ -4,7 +4,7 @@ const Utils = {
         let parse = url.split("/");
         let request = {};
         request.resource = parse[1];
-        request.id = parse[2];
+        request.name = parse[2];
         request.verb = parse[3];
 
         return request

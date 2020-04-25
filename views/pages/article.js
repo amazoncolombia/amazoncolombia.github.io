@@ -1,36 +1,54 @@
+import Utils from "/amazoncolombia.github.io/services/utils.js";
+
+let getArticle = async (name) => {
+    const options = {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    };
+    try {
+        const response = await fetch(`./models/articles/${name}.json`, options);
+        const json = await response.json();
+        return json
+    } catch (err) {
+        alert('Error cargando articulo, recargue la página.');
+    }
+};
+
 let Article = {
     render: async () => {
+        let request = Utils.parseRequestURL();
+        let article = await getArticle(request.name);
+        //cambiar article.text por article.html
         return `
             <div class="row mt-4 text-left">
                 <h4 class="col-12 font-weight-bold">
-                    Los mejores zapatos de adidas
+                    ${article.title}
                 </h4>
             </div>
             
             <div class="row ml-3 mr-3 mt-2" style="font-size: 18px;">
                 <div class="col-5 p-0 text-left">
-                    20/02/2020
+                    ${article.date}
                 </div>
                 <div class="col-7 p-0 text-right">
                     <svg class="bi bi-clock" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" d="M8 15A7 7 0 108 1a7 7 0 000 14zm8-7A8 8 0 110 8a8 8 0 0116 0z" clip-rule="evenodd"/>
                         <path fill-rule="evenodd" d="M7.5 3a.5.5 0 01.5.5v5.21l3.248 1.856a.5.5 0 01-.496.868l-3.5-2A.5.5 0 017 9V3.5a.5.5 0 01.5-.5z" clip-rule="evenodd"/>
                     </svg>
-                    1 min de lectura
+                    ${article.time} min de lectura
                 </div>
             </div>
             
             <div class="row mt-4">
                 <div class="col p-0">
-                    <img class="img-fluid" src="assets/img/zapato.jpg">
+                    <img class="img-fluid" src=${article.img}>
                 </div>
             </div>
             
             <p class="mt-4 text-left m-2" style="font-size: 18px;">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, 
-                vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, 
-                ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, 
-                tortor mauris molestie elit, et lacinia ipsum quam nec dui. 
+                ${article.text}
             </p>
             
             <div class="row">

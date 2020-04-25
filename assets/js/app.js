@@ -1,21 +1,23 @@
 "use strict";
 
-import Main from "/amazoncolombia.github.io/views/pages/main.js";
-import BrandList from "/amazoncolombia.github.io/views/pages/brandList.js";
-import Brand from "/amazoncolombia.github.io/views/pages/brand.js";
-import Article from "/amazoncolombia.github.io/views/pages/article.js";
+import Home from "../../views/pages/home.js";
+import BrandList from "../../views/pages/brandList.js";
+import Brand from "../../views/pages/brand.js";
+import BrandCategory from "../../views/pages/brandCategory.js";
+import Article from "../../views/pages/article.js";
 
-import Error404 from "/amazoncolombia.github.io/views/pages/error404.js";
+import Error404 from "../../views/pages/error404.js";
 
-import Navbar from "/amazoncolombia.github.io/views/components/navbar.js";
+import Navbar from "../../views/components/navbar.js";
 
-import Utils from "/amazoncolombia.github.io/services/utils.js";
+import Utils from "../../services/utils.js";
 
 const routes = {
-    "/": Main,
+    "/": Home,
     "/brand-list": BrandList,
-    "/brand": Brand,
-    "/article": Article,
+    "/brands/:nombre": Brand,
+    "/categories/:nombre": BrandCategory,
+    "/articles/:nombre": Article,
 };
 
 const router = async () => {
@@ -28,7 +30,7 @@ const router = async () => {
 
     let request = Utils.parseRequestURL()
     let parsedURL = (request.resource ? '/' + request.resource : '/') + 
-                    (request.id ? '/:id' : '') + 
+                    (request.name ? '/:nombre' : '') + 
                     (request.verb ? '/' + request.verb : '');
     let page = routes[parsedURL] ? routes[parsedURL] : Error404;
     content.innerHTML = await page.render();

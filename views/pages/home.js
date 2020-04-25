@@ -1,4 +1,4 @@
-let Main = {
+let Home = {
     render: async () => {
         return `
             <div class="row mb-4" id="main-logo">
@@ -65,4 +65,4 @@ let Main = {
     }
 };
 
-export default Main;
+export default Home;
