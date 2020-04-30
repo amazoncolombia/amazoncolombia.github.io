@@ -18,25 +18,23 @@ let BrandList = {
     render: async () => {
         let brands = await getBrands();
         return `
-            <div class="row mt-4 text-left">
-                <h5 class="col-12 font-weight-bold">
-                    Marcas compradas en Colombia
-                </h5>
-            </div>
-            <div class="row mt-2 text-left">
-                <div class="col-12" style="font-size: 18px;">
-                    Artículos cortos sobre las marcas que conoces.
+            <div class="row">
+                <div class="col-lg-10 row mx-auto text-left">
+                    <h5 class="col-12 mt-4 font-weight-bold">
+                        Marcas compradas en Colombia
+                    </h5>
+                    <div class="col-12 mt-2" style="font-size: 18px;">
+                        Artículos cortos sobre las marcas que conoces.
+                    </div>
+                    ${ brands.map(brand => 
+                        `
+                        <div class="col-4 col-lg-2 mt-4 text-center" style="font-size: 18px";>
+                            <a class="brand-link" href="#/brands/${brand.name.toLowerCase()}">${brand.name}</a>
+                        </div>    
+                        `
+                        ).join('')
+                    }
                 </div>
-            </div>
-            <div class="row mt-4" style="font-size: 18px;">
-                ${ brands.map(brand => 
-                    `
-                    <div class="col-4 col-lg-2 mb-4">
-                        <a class="brand-link" href="#/brands/${brand.name.toLowerCase()}">${brand.name}</a>
-                    </div>    
-                    `
-                    ).join('')
-                }
             </div>
             `
     },

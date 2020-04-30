@@ -17,6 +17,8 @@ let getArticle = async (name) => {
 };
 
 let Article = {
+    //para mostrar productos, crear componente productos, en products.js se llama la funcion que 
+    //trae los proctos y se colocan en el render()
     render: async () => {
         let request = Utils.parseRequestURL();
         let article = await getArticle(request.name);

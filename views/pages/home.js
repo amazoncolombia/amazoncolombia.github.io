@@ -1,18 +1,18 @@
 let Home = {
     render: async () => {
         return `
-            <div class="row mb-4" id="main-logo">
+            <div class="row mb-4 pt-lg-5" id="main-logo">
                 <div class="col-12" style="color: #033076; font-size: 35px; font-weight: bold; margin-bottom: 10px; height: 35px;">
                     Amazon 
                     <span style="color: #f4eb49;">Col</span>om<span style="color: #b70f0a;">bia</span>
                 </div>
                 <h5 class="col-12">Un afiliado de amazon.com</h5>
             </div>
-            <form class="row mb-4 mr-1 ml-1 search-bar">
-                <select class="col-3 col-lg-2 search-category">
+            <form class="row mb-5 mx-auto search-bar">
+                <select class="col-3 col-lg-1 offset-lg-3 search-category">
                     <option value="todos" selected>Todos</option>
                 </select>
-                <input class="col-7 col-lg-9 search-text" type="text" placeholder="Comprar en Amazon"> 
+                <input class="col-7 col-lg-4 search-text" type="text" placeholder="Comprar en Amazon"> 
                 <button class="col-2 col-lg-1 btn search-button" >
                     <svg class="bi bi-search" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 011.415 0l3.85 3.85a1 1 0 01-1.414 1.415l-3.85-3.85a1 1 0 010-1.415z" clip-rule="evenodd"/>
@@ -35,28 +35,29 @@ let Home = {
                 </div>
             </div>
             <div class="row">
-                <div class="col-4 col-lg-2 mb-4">
-                    Adidas
-                </div>
-                <div class="col-4 col-lg-2 mb-4">
-                    Reebok
-                </div>
-                <div class="col-4 col-lg-2 mb-4">
-                    Lacoste
-                </div>
-                
-                <div class="col-4 col-lg-2 mb-4">
-                    Marca
-                </div>
-                <div class="col-4 col-lg-2 mb-4">
-                    Marca
-                </div>
-                <div class="col-4 col-lg-2 mb-4">
-                    Marca
+                <div class="col-lg-7 row mx-auto">
+                    <div class="col-4 col-lg-4 mb-4">
+                        Adidas
+                    </div>
+                    <div class="col-4 col-lg-4 mb-4">
+                        Reebok
+                    </div>
+                    <div class="col-4 col-lg-4 mb-4">
+                        Lacoste
+                    </div>
+                    <div class="col-4 col-lg-4 mb-4">
+                        Marca
+                    </div>
+                    <div class="col-4 col-lg-4 mb-4">
+                        Marca
+                    </div>
+                    <div class="col-4 col-lg-4 mb-4">
+                        Marca
+                    </div>
                 </div>
             </div>
-            <div class="row ml-3 mr-3 mb-3">
-                <a class="col pt-1 pb-1 btn-blue" href="#/brand-list">Ver todas las marcas</a>
+            <div class="row ml-auto mr-auto mb-1">
+                <a class="col col-lg-4 offset-lg-4 pt-1 pb-1 btn-blue" href="#/brand-list">Ver todas las marcas</a>
             </div>
             `
     },

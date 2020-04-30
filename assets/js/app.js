@@ -36,7 +36,7 @@ const router = async () => {
     content.innerHTML = await page.render();
     await page.afterRender();//añandir funciones para manejar la pagina generada.
     window.scrollTo(0, 0);
-}
+};
 
 // Listen on hash change:
 window.addEventListener('hashchange', router);

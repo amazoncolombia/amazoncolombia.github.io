@@ -54,55 +54,80 @@ let Brand = {
         let brand = await getBrand(request.name);
         let categories = await getCategories(request.name);
         let articles = await getArticles(request.name);
-        return `
+        let view = `
             <div class="row">
                 <div class="col p-0">
                     <img class="img-fluid" src=${brand.img}>
                 </div>
             </div>
-            <div class="row mt-4 text-left">
-                <h5 class="col-12 font-weight-bold">
-                    Artículos sobre ${brand.name}
-                </h5>
-            </div>
-            <div class="row ml-3 mr-3 mt-4">
-            ${ articles.map(article => 
-                `
-                <div class="col-12 col-lg-3">
-                    <img class="img-fluid" src=${article.img}>
+            <div class="row">
+                <div class="col-6">
+                    <a id="brandArticlesLink" href="">Articulos</a>
                 </div>
-                <div class="col-12 mt-4 mb-2" style="font-size: 18px;">
-                    <h5>${article.title}</h5>
-                    <p class="text-left mt-2">
-                        ${article.text}
-                    </p>
+                <div class="col-6">
+                    <a id="brandCategoriesLink" href="">Categorías</a>
                 </div>
-                <a class="col-12 pt-1 pb-1 btn-yellow" href="#/articles${article.url}">
-                    Continuar leyendo
-                </a>
-                `
-                ).join('')
-            }
             </div>
-            <div class="row mt-4 text-left">
-                <h5 class="col-12 font-weight-bold">
-                    Productos Adidas
-                </h5>
-            </div>
-            <div class="row mt-3">
-                ${ categories.map(category => 
+            <div id="brandArticles">
+                <div class="row mt-4 text-left">
+                    <h5 class="col-12 font-weight-bold">
+                        Artículos sobre ${brand.name}
+                    </h5>
+                </div>
+                <div class="row ml-3 mr-3 mt-4">
+                ${ articles.map(article => 
                     `
-                    <div class="col-6 p-1">
-                        <a href="/#/categories${category.url}"><img class="img-fluid" src=${category.img}></a>
-                    </div> 
+                    <div class="col-12 col-lg-3">
+                        <img class="img-fluid" src=${article.img}>
+                    </div>
+                    <div class="col-12 mt-4 mb-2" style="font-size: 18px;">
+                        <h5>${article.title}</h5>
+                        <p class="text-left mt-2">
+                            ${article.text}
+                        </p>
+                    </div>
+                    <a class="col-12 pt-1 pb-1 btn-yellow" href="#/articles${article.url}">
+                        Continuar leyendo
+                    </a>
                     `
                     ).join('')
                 }
+                </div>
             </div>
-            `
+            <div id="brandCategories" style="display: none;">
+                <div class="row mt-4 text-left">
+                    <h5 class="col-12 font-weight-bold">
+                        Productos de ${brand.name}
+                    </h5>
+                </div>
+                <div class="row mt-3">
+                    ${ categories.map(category => 
+                        `
+                        <div class="col-6 p-1">
+                            <a href="/#/categories${category.url}"><img class="img-fluid" src=${category.img}></a>
+                        </div> 
+                        `
+                        ).join('')
+                    }
+                </div>
+            </div>        
+            `;
+            return view //retornar el renderiado en variable, para mayor rapidez en visualizacion 
     },
     afterRender: async () => {
-
+        let brandCategories = document.getElementById("brandCategories");
+        let brandArticles = document.getElementById("brandArticles");
+        
+        document.getElementById("brandArticlesLink").addEventListener("click", (event) => {
+            event.preventDefault();
+            brandCategories.style.display = "none"; 
+            brandArticles.style.display = "block";
+        })
+        document.getElementById("brandCategoriesLink").addEventListener("click", (event) => {
+            event.preventDefault();
+            brandArticles.style.display = "none";
+            brandCategories.style.display = "block"; 
+        })
     }
 };
 
